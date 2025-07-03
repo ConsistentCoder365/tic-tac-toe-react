@@ -1,0 +1,84 @@
+.app {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height : 100vh;
+    flex-direction: column;
+}
+
+/*.gameboard {*/
+/*    display: grid;*/
+/*    grid-template-columns: repeat(3, 1fr);*/
+/*    gap: 10px;*/
+/*}*/
+
+/*.square {*/
+/*    width: 100px;*/
+/*    height: 100px;*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    font-size: 2rem;*/
+/*    background-color: #f0f0f0;*/
+/*    border: 1px solid #ccc;*/
+/*    cursor: pointer;*/
+/*}*/
+
+.gameboard {
+    display: flex;
+    height: 300px;
+    width: 300px;
+    border: solid 1px black;
+    flex-wrap: wrap;
+
+}
+
+.square {
+    height: 100px;
+    width: 100px;
+    border: solid 2px black;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circle {
+    height: 90px;                /* Sets the height of the element */
+    width: 90px;                 /* Sets the width of the element */
+    border-radius: 50%;         /* Makes the element perfectly round (a circle) */
+    border: 15px solid blue;    /* Adds a 15px solid blue border around the circle */
+    box-sizing: border-box;     /* Includes the border inside the total width & height (90x90) */
+}
+
+.cross {
+    width: 90px;                      /* Width of the container */
+    height: 90px;                     /* Height of the container */
+    position: relative;              /* Establishes a reference for absolute positioning */
+    transform: rotate(45deg);        /* Rotates the container 45° to turn + into an X */
+}
+
+.cross::before,
+.cross::after {
+    content: "";                     /* Required for pseudo-elements to appear */
+    position: absolute;             /* Allows precise positioning within the .cross box */
+    background-color: red;          /* Red color for the cross lines */
+}
+
+.cross::before {
+    left: 50%;                       /* Positions the left edge at the horizontal center */
+    top: 0;                          /* Aligns to the top of the parent */
+    width: 30%;                      /* Width of the vertical bar */
+    height: 100%;                    /* Full height of the container */
+    transform: translateX(-50%);     /* Pulls the element back left by half its own width */
+}
+
+.cross::after {
+    top: 50%;                        /* Positions the top edge at the vertical center */
+    left: 0;                         /* Aligns to the left of the parent */
+    width: 100%;                     /* Full width of the container */
+    height: 30%;                     /* Height of the horizontal bar */
+    transform: translateY(-50%);     /* Pulls the element up by half its own height */
+}
